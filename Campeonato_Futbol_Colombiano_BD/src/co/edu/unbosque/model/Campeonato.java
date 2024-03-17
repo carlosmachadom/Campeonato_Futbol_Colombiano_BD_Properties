@@ -1,6 +1,8 @@
 package co.edu.unbosque.model;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
+
 import co.edu.unbosque.model.persistence.Archivo;
 
 public class Campeonato {
@@ -55,6 +57,11 @@ public class Campeonato {
 	}
 
 	public boolean agregarEquipo(String nombre, String cantEstrellas) {
+		try {
+			Integer.parseInt(cantEstrellas);
+		} catch (NumberFormatException e) {
+			return false;
+		}
 		int pos = buscarEquipo(nombre);
 		if (pos == -1) {
 			// Se agrega el nombre del equipo a la propiedad
@@ -63,8 +70,8 @@ public class Campeonato {
 			equipos = new Equipo[maxEquipos];
 			modificarPropiedad("campeonato.nombre" + (maxEquipos - 1), nombre);
 			// Agregar las estrellas de los equipos
-			modificarPropiedad("equipo.estrellaEquipo" + (maxEquipos - 1), cantEstrellas);
 
+			modificarPropiedad("equipo.estrellaEquipo" + (maxEquipos - 1), cantEstrellas);
 			inicializarEquipos();
 			return true;
 		} else {
@@ -100,7 +107,6 @@ public class Campeonato {
 				equipos[i] = equipos[i + 1];
 			}
 			maxEquipos--;
-			// maxEstrellas--;
 			modificarPropiedad("campeonato.equipos", "" + maxEquipos);
 			for (int i = pos; i < maxEquipos; i++) {
 				modificarPropiedad("campeonato.nombre" + (i), equipos[i].getNombre());

@@ -1,5 +1,7 @@
 package co.edu.unbosque.controller;
 
+import java.util.InputMismatchException;
+
 import co.edu.unbosque.model.Campeonato;
 import co.edu.unbosque.view.VistaConsola;
 
@@ -24,8 +26,10 @@ public class Controller {
 			ingresarLoop: while (true) {
 				switch (opcion) {
 				case 1:
+					boolean isNumber = false;
 					aux = vista.leerCadenaCaracteres("Ingrese Equipo: ");
-					String auxEstrellas = vista.leerCadenaCaracteres("Ingrese estrellas: ");
+					String auxEstrellas = vista.leerCadenaCaracteres("Ingrese estrellas");
+
 					if (campeonato.agregarEquipo(aux, auxEstrellas)) {
 						vista.mostrarInformacion("Se agrego con exito");
 					} else {
