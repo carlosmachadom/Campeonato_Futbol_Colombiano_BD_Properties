@@ -29,7 +29,7 @@ public class VistaConsola {
 	public String leerCadenaCaracteres(String mensaje) {
 		String dato = "";
 		System.out.println(mensaje);
-		dato = leer.next();
+		dato = leer.nextLine();
 		return dato;
 	}
 	
