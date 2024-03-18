@@ -4,6 +4,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import co.edu.unbosque.model.Campeonato;
@@ -31,6 +32,11 @@ public class Controller implements ActionListener {
 		// Agregar Listener a boton de crear empleado
 		vista.getContenedorPrincipal().getContenedorPantallas().getListaEquipos().getBotonCrearEmpleado().addActionListener(this);
 		
+		asignarListenersBotonesEliminar();
+				
+	}
+	
+	public void asignarListenersBotonesEliminar() {
 		// Agregar Listeners para eliminar equipos
 		Component[] equipos = vista.getContenedorPrincipal().getContenedorPantallas().getListaEquipos().getTabla().getContenedorInfo().getComponents();
 		
@@ -42,7 +48,7 @@ public class Controller implements ActionListener {
             		((PanelFilaTabla) subComponente).getBotonEliminar().addActionListener(this);
             	}
             }
-		}		
+		}
 	}
 	
 	@Override
@@ -59,7 +65,20 @@ public class Controller implements ActionListener {
 		
 		if (aux.contains("Eliminar")) {			
 			String equipo = aux.split("=")[1];
-			System.out.println(equipo);			
+			boolean respuesta = campeonato.eliminarEquipo(equipo);
+			
+			if (respuesta) {
+				//Mostrar dialog de exito
+				JOptionPane.showMessageDialog(null, "¡Equipo eliminado con éxito!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+				campeonato = new Campeonato();
+				vista.getContenedorPrincipal().getContenedorPantallas().getListaEquipos().insertarNuevaTabla(campeonato.getEquipos());
+				asignarListenersBotonesEliminar();
+			} else {
+				//Mostrar dialog de rechazo
+				JOptionPane.showMessageDialog(null, "¡El equipo no se pudo eliminar!", "Error", JOptionPane.ERROR_MESSAGE);
+			}
 		}
+		
+		
 	}
 }
