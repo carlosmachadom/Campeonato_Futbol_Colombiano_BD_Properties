@@ -16,7 +16,7 @@ public class VistaVentana extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout());		
 		setMinimumSize(new Dimension(1366, 768));
-		setResizable(true);
+		setResizable(false);
 		setLocationRelativeTo(null);
 
 		inicializarComponentes();

@@ -28,7 +28,7 @@ public class PanelContenedorPrincipal extends JPanel{
 		
 		JPanel highCont = new JPanel();
 		highCont.setLayout(new BorderLayout());
-		highCont.setPreferredSize(new Dimension(1440, 960));
+		//highCont.setPreferredSize(new Dimension(1440, 960));
 		highCont.add(contenedorPantallas);
 		
 		JPanel section = new JPanel();

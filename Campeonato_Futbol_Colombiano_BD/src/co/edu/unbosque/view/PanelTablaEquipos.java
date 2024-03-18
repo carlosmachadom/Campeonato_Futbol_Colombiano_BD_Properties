@@ -2,6 +2,7 @@ package co.edu.unbosque.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -28,7 +29,19 @@ public class PanelTablaEquipos extends JPanel {
 	}
 	
 	public void inicializarComponentes(Equipo[] listaEquipos) {
-		insertarCabecera();		
+		insertarCabecera();	
+		contenedorInfo = new JPanel(new GridLayout(listaEquipos.length, 1));
+		
+		JScrollPane scrollArea = new JScrollPane(
+				contenedorInfo,
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		
+		scrollArea.setPreferredSize(new Dimension(1440, 480));
+		
+		scrollArea.setBorder(new EmptyBorder(0,0,0,0));		
+		add(scrollArea, BorderLayout.CENTER);
+		
 		renderizarTabla(listaEquipos);
 	}
 	
@@ -45,21 +58,17 @@ public class PanelTablaEquipos extends JPanel {
 	}
 	
 	public void renderizarTabla(Equipo[] listaEquipos) {
-		contenedorInfo = new JPanel(new GridLayout(listaEquipos.length, 1));
-		
+		contenedorInfo.removeAll();
+		contenedorInfo.revalidate();
+		contenedorInfo.repaint();
+
 		for(Equipo e : listaEquipos) {
 			JPanel fila = obtenerFilaTabla(e.getNombre(), e.getEstrellas());			
 			contenedorInfo.add(fila);
 		}
 		
-		JScrollPane scrollArea = new JScrollPane(
-				contenedorInfo,
-				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		
-		scrollArea.setBorder(new EmptyBorder(0,0,0,0));
-		
-		add(scrollArea, BorderLayout.CENTER);
+		contenedorInfo.revalidate();
+		contenedorInfo.repaint();		
 	}
 	
 	public JPanel obtenerSeccion(String texto) {
