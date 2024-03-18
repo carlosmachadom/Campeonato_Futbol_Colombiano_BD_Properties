@@ -1,6 +1,7 @@
 package co.edu.unbosque.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -13,12 +14,12 @@ public class VistaVentana extends JFrame {
 		setTitle("Base de datos campeonato de futbol Colombiano");
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new BorderLayout());
+		getContentPane().setLayout(new BorderLayout());		
+		setMinimumSize(new Dimension(1366, 768));
+		setResizable(true);
+		setLocationRelativeTo(null);
 
 		inicializarComponentes();
-		
-		setResizable(false);
-		setLocationRelativeTo(null);
 		setVisible(true);
 	}
 	

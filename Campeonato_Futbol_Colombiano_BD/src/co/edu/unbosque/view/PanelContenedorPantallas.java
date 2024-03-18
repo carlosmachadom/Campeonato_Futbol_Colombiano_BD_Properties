@@ -6,14 +6,16 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class PanelContenedorPantallas extends JPanel{
-	
+import co.edu.unbosque.model.Equipo;
+
+public class PanelContenedorPantallas extends JPanel{	
 	private PanelPantallaListaEquipos listaEquipos;
 	private PanelPantallaCrearNuevoEquipo crearEquipo;
 	
 	public PanelContenedorPantallas() {
 		setLayout(new BorderLayout());
 		setBorder(new EmptyBorder(0,0,0,0));
+		setBackground(Color.black);
 		
 		inicializarComponentes();
 		
@@ -28,7 +30,7 @@ public class PanelContenedorPantallas extends JPanel{
 		removeAll();
 		actualizarEstado();
 		
-		// Insertar Pantalla de Tabla
+		// Insertar Pantalla de Tabla		
 		listaEquipos = new PanelPantallaListaEquipos();
 		add(listaEquipos);
 		
@@ -50,6 +52,12 @@ public class PanelContenedorPantallas extends JPanel{
 		revalidate();
 		repaint();
 	}
-	
 
+	public PanelPantallaListaEquipos getListaEquipos() {
+		return listaEquipos;
+	}
+
+	public PanelPantallaCrearNuevoEquipo getCrearEquipo() {
+		return crearEquipo;
+	}
 }

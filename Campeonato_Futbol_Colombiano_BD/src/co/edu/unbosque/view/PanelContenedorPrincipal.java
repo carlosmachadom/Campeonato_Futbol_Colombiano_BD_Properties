@@ -1,6 +1,7 @@
 package co.edu.unbosque.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -39,7 +40,7 @@ public class PanelContenedorPrincipal extends JPanel{
 		gbc.fill = GridBagConstraints.BOTH;
 		section.add(highCont, gbc);		
 		
-		add(section, BorderLayout.CENTER);		
+		add(section, BorderLayout.CENTER);
 	}
 	
 	public PanelContenedorPantallas getContenedorPantallas() {

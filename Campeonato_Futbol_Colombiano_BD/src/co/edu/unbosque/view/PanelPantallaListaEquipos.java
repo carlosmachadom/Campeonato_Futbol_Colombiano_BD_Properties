@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -14,6 +15,8 @@ import co.edu.unbosque.model.Equipo;
 
 public class PanelPantallaListaEquipos extends JPanel {
 	private JButton  botonCrearEmpleado;	
+	private PanelTablaEquipos tabla;
+	private JPanel contenedorTabla;
 	
 	public PanelPantallaListaEquipos() {
 		setLayout(new BorderLayout());
@@ -25,6 +28,9 @@ public class PanelPantallaListaEquipos extends JPanel {
 	
 	public void inicializarComponentes() {
 		insertarCabecera();
+		
+		contenedorTabla = new JPanel();
+		add(contenedorTabla);
 	}
 	
 	public void insertarCabecera() {
@@ -42,22 +48,32 @@ public class PanelPantallaListaEquipos extends JPanel {
 		add(seccionBotonCrear, BorderLayout.NORTH);
 	}
 	
-	public void insertarNuevaTabla(ArrayList<Equipo> listaEquipos) {
-		removeAll();
+	public void insertarNuevaTabla(Equipo[] listaEquipos) {
+		contenedorTabla.removeAll();
 		actualizarEstado();
 		
 		// Insertar Tabla
+		tabla = new PanelTablaEquipos(listaEquipos);
+		contenedorTabla.add(tabla, BorderLayout.CENTER);
 		
 		// Actualizar Estado
 		actualizarEstado();
 	}
 	
 	public void actualizarEstado() {
-		revalidate();
-		repaint();
+		contenedorTabla.revalidate();
+		contenedorTabla.repaint();
 	}
 	
 	public JButton getBotonCrearEmpleado() {
 		return botonCrearEmpleado;
+	}
+
+	public JPanel getContenedorTabla() {
+		return contenedorTabla;
+	}
+
+	public PanelTablaEquipos getTabla() {
+		return tabla;
 	}
 }
