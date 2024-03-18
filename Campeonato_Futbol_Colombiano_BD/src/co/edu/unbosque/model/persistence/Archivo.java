@@ -10,9 +10,10 @@ public class Archivo {
 	
 	private File f;
 	private Properties datos;
+	private String ruta ="archivos\\DatosCampeonato.properties";
 	
 	public Archivo() {
-		f = new File("archivos\\DatosCampeonato.properties");
+		f = new File(ruta);
 		datos = new Properties();
 	}
 	
