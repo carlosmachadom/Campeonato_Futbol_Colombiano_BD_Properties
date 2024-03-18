@@ -102,17 +102,17 @@ public class Campeonato {
 
 	public boolean eliminarEquipo(String nombre) {
 		int pos = buscarEquipo(nombre);
-		
+
 		if (pos != -1) {
-			
+
 			for (int i = pos; i < maxEquipos - 1; i++) {
 				equipos[i] = equipos[i + 1];
 			}
-			
+
 			maxEquipos--;
-			
+
 			modificarPropiedad("campeonato.equipos", "" + maxEquipos);
-			
+
 			for (int i = pos; i < maxEquipos; i++) {
 				modificarPropiedad("campeonato.nombre" + (i), equipos[i].getNombre());
 				modificarPropiedad("equipo.estrellaEquipo" + (i), equipos[i].getEstrellas());
@@ -123,7 +123,7 @@ public class Campeonato {
 			inicializarEquipos();
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -133,6 +133,6 @@ public class Campeonato {
 
 	public Equipo[] getEquipos() {
 		return equipos;
-	}	
-	
+	}
+
 }

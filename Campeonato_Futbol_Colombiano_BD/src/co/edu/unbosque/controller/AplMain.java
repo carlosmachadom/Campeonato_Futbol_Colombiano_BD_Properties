@@ -17,8 +17,7 @@ public class AplMain {
 			e.printStackTrace();
 		}
 		
-		Controller controlador = new Controller();
-		controlador.run();		
+		Controller controlador = new Controller();	
 	}
 
 }

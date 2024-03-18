@@ -14,7 +14,8 @@ import javax.swing.border.EmptyBorder;
 import co.edu.unbosque.model.Equipo;
 
 public class PanelPantallaListaEquipos extends JPanel {
-	private JButton  botonCrearEmpleado;	
+	private JButton botonCrearEquipo;	
+	private JButton botonConsultar;
 	private PanelTablaEquipos tabla;
 	private JPanel contenedorTabla;
 	
@@ -38,13 +39,21 @@ public class PanelPantallaListaEquipos extends JPanel {
 		seccionBotonCrear.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		seccionBotonCrear.setBorder(new EmptyBorder(20,20,20,20));
 		
-		botonCrearEmpleado = new JButton("Crear Nuevo Equipo");
-		botonCrearEmpleado.setActionCommand("PantallaCrearNuevoEquipo");
-		botonCrearEmpleado.setMargin(new Insets(10, 10, 10, 10));
-		botonCrearEmpleado.setFont(botonCrearEmpleado.getFont().deriveFont(18f));
-		botonCrearEmpleado.setFocusPainted(false);
+		botonCrearEquipo = new JButton("Crear Nuevo Equipo");
+		botonCrearEquipo.setActionCommand("CREAR");
+		botonCrearEquipo.setMargin(new Insets(10, 10, 10, 10));
+		botonCrearEquipo.setFont(botonCrearEquipo.getFont().deriveFont(18f));
+		botonCrearEquipo.setFocusPainted(false);
 		
-		seccionBotonCrear.add(botonCrearEmpleado);
+		botonConsultar = new JButton("Consultar equipo");
+		botonConsultar.setActionCommand("CONSULTAR");
+		botonConsultar.setMargin(new Insets(10, 10, 10, 10));
+		botonConsultar.setFont(botonCrearEquipo.getFont().deriveFont(18f));
+		botonConsultar.setFocusPainted(false);
+		
+		seccionBotonCrear.add(botonCrearEquipo);
+		seccionBotonCrear.add(botonConsultar);
+		
 		add(seccionBotonCrear, BorderLayout.NORTH);
 	}
 	
@@ -65,8 +74,8 @@ public class PanelPantallaListaEquipos extends JPanel {
 		contenedorTabla.repaint();
 	}
 	
-	public JButton getBotonCrearEmpleado() {
-		return botonCrearEmpleado;
+	public JButton getBotonCrearEquipo() {
+		return botonCrearEquipo;
 	}
 
 	public JPanel getContenedorTabla() {
@@ -76,4 +85,13 @@ public class PanelPantallaListaEquipos extends JPanel {
 	public PanelTablaEquipos getTabla() {
 		return tabla;
 	}
+
+	public JButton getBotonConsultar() {
+		return botonConsultar;
+	}
+
+	public void setBotonConsultar(JButton botonConsultar) {
+		this.botonConsultar = botonConsultar;
+	}
+	
 }

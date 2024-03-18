@@ -32,7 +32,7 @@ public class Equipo {
 
 	@Override
 	public String toString() {
-		return "Equipo [nombre=" + nombre + ", estrellas=" + estrellas+"]";
+		return "Equipo: " + nombre + "\nEstrellas:" + estrellas;
 	}
 
 }
