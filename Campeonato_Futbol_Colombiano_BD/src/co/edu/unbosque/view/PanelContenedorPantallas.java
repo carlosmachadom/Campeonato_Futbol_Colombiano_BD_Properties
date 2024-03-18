@@ -36,17 +36,7 @@ public class PanelContenedorPantallas extends JPanel{
 		// Volver a actualizar estado
 		actualizarEstado();
 	}
-	
-	public void insertarPantallaCrearNuevoEquipo() {
-		removeAll();
-		actualizarEstado();
-		
-		// Insertar Pantalla de crear
-		
-		// Volver a actualizar estado
-		actualizarEstado();
-	}
-	
+
 	public void actualizarEstado() {
 		revalidate();
 		repaint();
