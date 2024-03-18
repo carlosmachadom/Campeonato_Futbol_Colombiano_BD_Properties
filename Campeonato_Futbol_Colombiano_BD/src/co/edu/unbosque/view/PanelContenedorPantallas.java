@@ -10,7 +10,6 @@ import co.edu.unbosque.model.Equipo;
 
 public class PanelContenedorPantallas extends JPanel{	
 	private PanelPantallaListaEquipos listaEquipos;
-	private PanelPantallaCrearNuevoEquipo crearEquipo;
 	
 	public PanelContenedorPantallas() {
 		setLayout(new BorderLayout());
@@ -57,7 +56,4 @@ public class PanelContenedorPantallas extends JPanel{
 		return listaEquipos;
 	}
 
-	public PanelPantallaCrearNuevoEquipo getCrearEquipo() {
-		return crearEquipo;
-	}
 }
