@@ -48,7 +48,7 @@ public class Campeonato {
 		}
 	}
 
-	public String InformacionCampeonato() {
+	public String informacionCampeonato() {
 		String info = "Cantidad de equipos: " + maxEquipos + "\n";
 		for (int i = 0; i < maxEquipos; i++) {
 			info += equipos[i] + "\n";
@@ -111,7 +111,10 @@ public class Campeonato {
 			for (int i = pos; i < maxEquipos; i++) {
 				modificarPropiedad("campeonato.nombre" + (i), equipos[i].getNombre());
 				modificarPropiedad("equipo.estrellaEquipo" + (i), equipos[i].getEstrellas());
+				eliminarPropiedad("campeonato.nombre" + (equipos.length - 1));
+				eliminarPropiedad("equipo.estrellaEquipo" + (equipos.length - 1));
 			}
+
 			inicializarEquipos();
 			return true;
 		}

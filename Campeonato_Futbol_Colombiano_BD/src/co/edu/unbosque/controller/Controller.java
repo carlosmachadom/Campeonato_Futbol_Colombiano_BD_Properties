@@ -1,7 +1,5 @@
 package co.edu.unbosque.controller;
 
-import java.util.InputMismatchException;
-
 import co.edu.unbosque.model.Campeonato;
 import co.edu.unbosque.view.VistaConsola;
 
@@ -51,7 +49,7 @@ public class Controller {
 					break ingresarLoop;
 
 				case 3:
-					vista.mostrarInformacion(campeonato.InformacionCampeonato());
+					vista.mostrarInformacion(campeonato.informacionCampeonato());
 					break ingresarLoop;
 
 				case 4:
