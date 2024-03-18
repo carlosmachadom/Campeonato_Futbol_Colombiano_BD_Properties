@@ -121,4 +121,12 @@ public class Campeonato {
 		return false;
 	}
 
+	public int getMaxEquipos() {
+		return maxEquipos;
+	}
+
+	public Equipo[] getEquipos() {
+		return equipos;
+	}	
+	
 }
