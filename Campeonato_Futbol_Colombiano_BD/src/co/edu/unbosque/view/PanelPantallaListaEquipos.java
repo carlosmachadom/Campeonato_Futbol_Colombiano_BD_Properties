@@ -39,7 +39,7 @@ public class PanelPantallaListaEquipos extends JPanel {
 		seccionBotonCrear.setBorder(new EmptyBorder(20,20,20,20));
 		
 		botonCrearEmpleado = new JButton("Crear Nuevo Equipo");
-		botonCrearEmpleado.setActionCommand("CrearNuevoEquipo");
+		botonCrearEmpleado.setActionCommand("PantallaCrearNuevoEquipo");
 		botonCrearEmpleado.setMargin(new Insets(10, 10, 10, 10));
 		botonCrearEmpleado.setFont(botonCrearEmpleado.getFont().deriveFont(18f));
 		botonCrearEmpleado.setFocusPainted(false);

@@ -7,6 +7,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class AplMain {
 
 	public static void main(String[] args) {
+//		for(LookAndFeelInfo lafInfo :  UIManager.getInstalledLookAndFeels()) {
+//			System.out.println(lafInfo.getClassName());
+//		}
 		
 		try {
 			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");

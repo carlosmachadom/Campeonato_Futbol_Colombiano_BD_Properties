@@ -29,11 +29,15 @@ public class Controller implements ActionListener {
 	}
 	
 	public void asignarListeners() {
-		// Agregar Listener a boton de crear empleado
-		vista.getContenedorPrincipal().getContenedorPantallas().getListaEquipos().getBotonCrearEmpleado().addActionListener(this);
-		
-		asignarListenersBotonesEliminar();
+		// Agregar Listener a Pantalla lista de equipos
+		asignarListenersPantallaListaEquipos();
 				
+		// Agregar listeners a pantalla crear nuevo equipo
+	}
+	
+	public void asignarListenersPantallaListaEquipos() {
+		vista.getContenedorPrincipal().getContenedorPantallas().getListaEquipos().getBotonCrearEmpleado().addActionListener(this);
+		asignarListenersBotonesEliminar();
 	}
 	
 	public void asignarListenersBotonesEliminar() {
@@ -59,7 +63,7 @@ public class Controller implements ActionListener {
 	}
 
 	public void validateAction(String aux) {
-		if(aux.equals("CrearNuevoEquipo")) {
+		if(aux.equals("PantallaCrearNuevoEquipo")) {
 			
 		}
 		
